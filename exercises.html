@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>5 Exercises | A Minimal Book Example</title>
+  <meta name="description" content="5 Exercises | A Minimal Book Example" />
+  <meta name="generator" content="bookdown 0.41 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="5 Exercises | A Minimal Book Example" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="5 Exercises | A Minimal Book Example" />
+  
+  
+  
+
+<meta name="author" content="Yihui Xie" />
+
+
+<meta name="date" content="2024-11-13" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="guerrilla-analytics.html"/>
+
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
+<li class="chapter" data-level="2" data-path="cv.html"><a href="cv.html"><i class="fa fa-check"></i><b>2</b> CV</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="cv.html"><a href="cv.html#rd-year"><i class="fa fa-check"></i><b>2.1</b> 3rd year</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="cv.html"><a href="cv.html#theoretical-courses"><i class="fa fa-check"></i><b>2.1.1</b> Theoretical courses</a></li>
+<li class="chapter" data-level="2.1.2" data-path="cv.html"><a href="cv.html#practical-courses"><i class="fa fa-check"></i><b>2.1.2</b> Practical courses</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="cv.html"><a href="cv.html#honours-projects-extracurricular"><i class="fa fa-check"></i><b>2.2</b> Honours projects (extracurricular)</a></li>
+<li class="chapter" data-level="2.3" data-path="cv.html"><a href="cv.html#nd-year"><i class="fa fa-check"></i><b>2.3</b> 2nd year</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="cv.html"><a href="cv.html#theoretical-courses-1"><i class="fa fa-check"></i><b>2.3.1</b> Theoretical courses</a></li>
+<li class="chapter" data-level="2.3.2" data-path="cv.html"><a href="cv.html#practical-courses-1"><i class="fa fa-check"></i><b>2.3.2</b> Practical courses</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="cv.html"><a href="cv.html#extracurricular-courses"><i class="fa fa-check"></i><b>2.4</b> Extracurricular courses</a></li>
+<li class="chapter" data-level="2.5" data-path="cv.html"><a href="cv.html#work-experience"><i class="fa fa-check"></i><b>2.5</b> Work Experience</a></li>
+<li class="chapter" data-level="2.6" data-path="cv.html"><a href="cv.html#internship"><i class="fa fa-check"></i><b>2.6</b> Internship</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="free-space-visualisation-of-scrna-sequencing-using-python.html"><a href="free-space-visualisation-of-scrna-sequencing-using-python.html"><i class="fa fa-check"></i><b>3</b> Free Space: Visualisation of scRNA sequencing using Python</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="free-space-visualisation-of-scrna-sequencing-using-python.html"><a href="free-space-visualisation-of-scrna-sequencing-using-python.html#scrna-sequencing-using-python"><i class="fa fa-check"></i><b>3.1</b> scRNA sequencing using Python</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="guerrilla-analytics.html"><a href="guerrilla-analytics.html"><i class="fa fa-check"></i><b>4</b> Guerrilla analytics</a></li>
+<li class="chapter" data-level="5" data-path="exercises.html"><a href="exercises.html"><i class="fa fa-check"></i><b>5</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="exercises.html"><a href="exercises.html#opdracht-3.2"><i class="fa fa-check"></i><b>5.1</b> Opdracht 3.2</a></li>
+<li class="chapter" data-level="5.2" data-path="exercises.html"><a href="exercises.html#exercise-3.3"><i class="fa fa-check"></i><b>5.2</b> Exercise 3.3</a></li>
+<li class="chapter" data-level="5.3" data-path="exercises.html"><a href="exercises.html#exercise-3.4"><i class="fa fa-check"></i><b>5.3</b> Exercise 3.4</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">A Minimal Book Example</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="exercises" class="section level1 hasAnchor" number="5">
+<h1><span class="header-section-number">5</span> Exercises<a href="exercises.html#exercises" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="opdracht-3.2" class="section level2 hasAnchor" number="5.1">
+<h2><span class="header-section-number">5.1</span> Opdracht 3.2<a href="exercises.html#opdracht-3.2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>You are requested to run an analysis on the raw data in this file (sheet named ‘All Cycles’). It contains data from a plate reader experiment where wells are measured over time. The researcher asks you to generate a plot per sample. No other information was provided in the original email.</p>
+<p>Describe the following steps in an RMarkdown file. You do not need to write the R code for the actual analysis at this point - we will do that later in another exercise in this lesson. Answer these questions in your markdown file with exercises.</p>
+<p><strong>1. How would you prepare for this analysis in R/Rstudio?</strong></p>
+<p><strong>2. Look at the contents of the file, which Excel Worksheet do you need for the analysis?</strong>
+De eerste sheet. Hier staat de ruwe data van de plate reader.</p>
+<p><strong>3. Which steps do you need to take to load the data into R</strong>
+Inladen van de eerste sheet van de data in een variabele.</p>
+<ol start="4" style="list-style-type: decimal">
+<li><p>Which steps do you need to take in reshaping the file to make the dataformat match the requirement for using `{ggplot}</p></li>
+<li><p>Pivot longer zodat de tijd een eigen kolom heeft</p></li>
+<li><p>Groeperen</p></li>
+<li><p>Plotten</p></li>
+<li><p>Think of a better file name
+8_10_2024_OD600_ipsc</p></li>
+<li><p>Write a conceptual and kind and friendly, but clear reply email (in English) to the researcher, where you address the changes that the researcher needs to make to the file in order for you to be able to analyze this data in R.</p></li>
+</ol>
+</div>
+<div id="exercise-3.3" class="section level2 hasAnchor" number="5.2">
+<h2><span class="header-section-number">5.2</span> Exercise 3.3<a href="exercises.html#exercise-3.3" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="exercises.html#cb1-1" tabindex="-1"></a><span class="do">## Dit is de codering voor 1 bestand, maar om herhaling van code te voorkomen, gaan we dit anders schrijven. </span></span>
+<span id="cb1-2"><a href="exercises.html#cb1-2" tabindex="-1"></a><span class="fu">library</span>(tools)</span>
+<span id="cb1-3"><a href="exercises.html#cb1-3" tabindex="-1"></a><span class="fu">library</span>(here)</span></code></pre></div>
+<pre><code>## here() starts at /Users/annemariekekreeft/school/dsfb2_workflows_portfolio</code></pre>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="exercises.html#cb3-1" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span></code></pre></div>
+<pre><code>## 
+## Attaching package: &#39;dplyr&#39;</code></pre>
+<pre><code>## The following objects are masked from &#39;package:stats&#39;:
+## 
+##     filter, lag</code></pre>
+<pre><code>## The following objects are masked from &#39;package:base&#39;:
+## 
+##     intersect, setdiff, setequal, union</code></pre>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="exercises.html#cb7-1" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb7-2"><a href="exercises.html#cb7-2" tabindex="-1"></a><span class="fu">library</span>(tibble)</span>
+<span id="cb7-3"><a href="exercises.html#cb7-3" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb7-4"><a href="exercises.html#cb7-4" tabindex="-1"></a>md5_ex1_raw <span class="ot">&lt;-</span> tools<span class="sc">::</span><span class="fu">md5sum</span>(</span>
+<span id="cb7-5"><a href="exercises.html#cb7-5" tabindex="-1"></a>  here<span class="sc">::</span><span class="fu">here</span>(</span>
+<span id="cb7-6"><a href="exercises.html#cb7-6" tabindex="-1"></a>    <span class="st">&quot;opdrachten&quot;</span>,</span>
+<span id="cb7-7"><a href="exercises.html#cb7-7" tabindex="-1"></a>    <span class="st">&quot;md5_examples&quot;</span>,</span>
+<span id="cb7-8"><a href="exercises.html#cb7-8" tabindex="-1"></a>    <span class="st">&quot;MD5_exampledata_1.txt&quot;</span></span>
+<span id="cb7-9"><a href="exercises.html#cb7-9" tabindex="-1"></a>  )</span>
+<span id="cb7-10"><a href="exercises.html#cb7-10" tabindex="-1"></a>)</span>
+<span id="cb7-11"><a href="exercises.html#cb7-11" tabindex="-1"></a></span>
+<span id="cb7-12"><a href="exercises.html#cb7-12" tabindex="-1"></a></span>
+<span id="cb7-13"><a href="exercises.html#cb7-13" tabindex="-1"></a><span class="co">#1. Specify directory </span></span>
+<span id="cb7-14"><a href="exercises.html#cb7-14" tabindex="-1"></a>myDir <span class="ot">&lt;-</span> here<span class="sc">::</span><span class="fu">here</span>(</span>
+<span id="cb7-15"><a href="exercises.html#cb7-15" tabindex="-1"></a>    <span class="st">&quot;opdrachten&quot;</span>,</span>
+<span id="cb7-16"><a href="exercises.html#cb7-16" tabindex="-1"></a>    <span class="st">&quot;md5_examples&quot;</span>)</span>
+<span id="cb7-17"><a href="exercises.html#cb7-17" tabindex="-1"></a><span class="co">#2. Specify file names </span></span>
+<span id="cb7-18"><a href="exercises.html#cb7-18" tabindex="-1"></a>fileNames <span class="ot">&lt;-</span> <span class="fu">list.files</span>(myDir, <span class="at">recursive =</span> <span class="cn">TRUE</span>) </span>
+<span id="cb7-19"><a href="exercises.html#cb7-19" tabindex="-1"></a><span class="co">#3 md5sum met path naar dir en filenames. dit wordt net als hiervoor enframed(). </span></span>
+<span id="cb7-20"><a href="exercises.html#cb7-20" tabindex="-1"></a>tools<span class="sc">::</span><span class="fu">md5sum</span>(<span class="fu">file.path</span>(myDir, fileNames)) <span class="sc">%&gt;%</span></span>
+<span id="cb7-21"><a href="exercises.html#cb7-21" tabindex="-1"></a>  <span class="fu">enframe</span>() <span class="ot">-&gt;</span> md5sums_all</span>
+<span id="cb7-22"><a href="exercises.html#cb7-22" tabindex="-1"></a><span class="co">#4. We willen ook fileNames toevoegen</span></span>
+<span id="cb7-23"><a href="exercises.html#cb7-23" tabindex="-1"></a>md5sums_all<span class="sc">$</span>filename<span class="ot">&lt;-</span> fileNames</span>
+<span id="cb7-24"><a href="exercises.html#cb7-24" tabindex="-1"></a><span class="co">#5. Alle relevante informatie staat eigenlijk in filename en value. Dus, select om alleen deze te laten zien. </span></span>
+<span id="cb7-25"><a href="exercises.html#cb7-25" tabindex="-1"></a>md5sums_all <span class="sc">%&gt;%</span> <span class="fu">select</span>(filename, value)</span></code></pre></div>
+<pre><code>## # A tibble: 4 × 2
+##   filename                                value                           
+##   &lt;chr&gt;                                   &lt;chr&gt;                           
+## 1 MD5_exampledata_1.txt                   f3d2eeb79b4c24490bf08f483e5cadd3
+## 2 MD5_exampledata_backupcomputercrash.txt f3d2eeb79b4c24490bf08f483e5cadd3
+## 3 MD5_exampledata_maybethisone.txt        a331f23fd3586f0100173bd28b1e319c
+## 4 MD5_exampledata_savethisone.txt         f3d2eeb79b4c24490bf08f483e5cadd3</code></pre>
+</div>
+<div id="exercise-3.4" class="section level2 hasAnchor" number="5.3">
+<h2><span class="header-section-number">5.3</span> Exercise 3.4<a href="exercises.html#exercise-3.4" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>A. Determine the md5sums of the file. Save the checksums to a file [write a piece of R code]</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="exercises.html#cb9-1" tabindex="-1"></a>ex4_raw <span class="ot">&lt;-</span> tools<span class="sc">::</span><span class="fu">md5sum</span>(</span>
+<span id="cb9-2"><a href="exercises.html#cb9-2" tabindex="-1"></a>  here<span class="sc">::</span><span class="fu">here</span>(</span>
+<span id="cb9-3"><a href="exercises.html#cb9-3" tabindex="-1"></a>    <span class="st">&quot;opdrachten&quot;</span>,</span>
+<span id="cb9-4"><a href="exercises.html#cb9-4" tabindex="-1"></a>    <span class="st">&quot;toxrefdb_nel_lel_noael_loael_summary_AUG2014_FOR_PUBLIC_RELEASE.csv&quot;</span></span>
+<span id="cb9-5"><a href="exercises.html#cb9-5" tabindex="-1"></a>  )</span>
+<span id="cb9-6"><a href="exercises.html#cb9-6" tabindex="-1"></a>) <span class="sc">%&gt;%</span>  <span class="fu">enframe</span>() <span class="ot">-&gt;</span> ex4_toxref</span>
+<span id="cb9-7"><a href="exercises.html#cb9-7" tabindex="-1"></a>ex4_toxref<span class="sc">$</span>value</span></code></pre></div>
+<pre><code>## [1] &quot;399276ed77401f350aaee0c52400c5e9&quot;</code></pre>
+<p>B. Upload the file to the Rstudio server and check again. Again, save the resulting md5sums in a file. Do the md5sums you calculated on the server and the md5sums of the local file match?</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="exercises.html#cb11-1" tabindex="-1"></a><span class="co"># On the Rstudio Server:</span></span>
+<span id="cb11-2"><a href="exercises.html#cb11-2" tabindex="-1"></a>ex4_raw <span class="ot">&lt;-</span> tools<span class="sc">::</span><span class="fu">md5sum</span>(</span>
+<span id="cb11-3"><a href="exercises.html#cb11-3" tabindex="-1"></a>  here<span class="sc">::</span><span class="fu">here</span>(</span>
+<span id="cb11-4"><a href="exercises.html#cb11-4" tabindex="-1"></a>    <span class="st">&quot;dsfb2&quot;</span>,</span>
+<span id="cb11-5"><a href="exercises.html#cb11-5" tabindex="-1"></a>    <span class="st">&quot;toxrefdb_nel_lel_noael_loael_summary_AUG2014_FOR_PUBLIC_RELEASE.csv&quot;</span></span>
+<span id="cb11-6"><a href="exercises.html#cb11-6" tabindex="-1"></a>  )</span>
+<span id="cb11-7"><a href="exercises.html#cb11-7" tabindex="-1"></a>) <span class="sc">%&gt;%</span>  <span class="fu">enframe</span>() <span class="ot">-&gt;</span> ex4_toxref_check</span></code></pre></div>
+<p>“399276ed77401f350aaee0c52400c5e9”</p>
+<p>Yes, the files match.</p>
+<p>C. Download the md5 file you just generated on the server (or upload the one you generated locally). Can you think of a way to check in an R script whether they are the same? Write the script and save it in a .R file</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="exercises.html#cb12-1" tabindex="-1"></a>ex4_raw <span class="ot">&lt;-</span> tools<span class="sc">::</span><span class="fu">md5sum</span>(</span>
+<span id="cb12-2"><a href="exercises.html#cb12-2" tabindex="-1"></a>  here<span class="sc">::</span><span class="fu">here</span>(</span>
+<span id="cb12-3"><a href="exercises.html#cb12-3" tabindex="-1"></a>    <span class="st">&quot;opdrachten&quot;</span>,</span>
+<span id="cb12-4"><a href="exercises.html#cb12-4" tabindex="-1"></a>    <span class="st">&quot;toxrefdb_nel_lel_noael_loael_summary_AUG2014_FOR_PUBLIC_RELEASE.csv&quot;</span></span>
+<span id="cb12-5"><a href="exercises.html#cb12-5" tabindex="-1"></a>  )</span>
+<span id="cb12-6"><a href="exercises.html#cb12-6" tabindex="-1"></a>) <span class="sc">%&gt;%</span>  <span class="fu">enframe</span>() <span class="ot">-&gt;</span> ex4_toxref</span>
+<span id="cb12-7"><a href="exercises.html#cb12-7" tabindex="-1"></a>ex4_toxref<span class="sc">$</span>value</span></code></pre></div>
+<pre><code>## [1] &quot;399276ed77401f350aaee0c52400c5e9&quot;</code></pre>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="exercises.html#cb14-1" tabindex="-1"></a>ex4_raw2 <span class="ot">&lt;-</span> tools<span class="sc">::</span><span class="fu">md5sum</span>(</span>
+<span id="cb14-2"><a href="exercises.html#cb14-2" tabindex="-1"></a>  here<span class="sc">::</span><span class="fu">here</span>(</span>
+<span id="cb14-3"><a href="exercises.html#cb14-3" tabindex="-1"></a>    <span class="st">&quot;opdrachten&quot;</span>,</span>
+<span id="cb14-4"><a href="exercises.html#cb14-4" tabindex="-1"></a>    <span class="st">&quot;toxrefdb_nel_lel_noael_loael_summary_AUG2014_FOR_PUBLIC_RELEASE_server.csv&quot;</span></span>
+<span id="cb14-5"><a href="exercises.html#cb14-5" tabindex="-1"></a>  )</span>
+<span id="cb14-6"><a href="exercises.html#cb14-6" tabindex="-1"></a>) <span class="sc">%&gt;%</span>  <span class="fu">enframe</span>() <span class="ot">-&gt;</span> ex4_toxref2</span>
+<span id="cb14-7"><a href="exercises.html#cb14-7" tabindex="-1"></a>ex4_toxref<span class="sc">$</span>value</span></code></pre></div>
+<pre><code>## [1] &quot;399276ed77401f350aaee0c52400c5e9&quot;</code></pre>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="exercises.html#cb16-1" tabindex="-1"></a>ex4_toxref<span class="sc">$</span>value <span class="sc">==</span> ex4_toxref<span class="sc">$</span>value</span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="exercises.html#cb18-1" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;fs&quot;</span>)</span>
+<span id="cb18-2"><a href="exercises.html#cb18-2" tabindex="-1"></a>fs<span class="sc">::</span><span class="fu">dir_tree</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">&quot;opdrachten&quot;</span>))</span></code></pre></div>
+<pre><code>## /Users/annemariekekreeft/school/dsfb2_workflows_portfolio/opdrachten
+## ├── 01-introduction.Rmd
+## ├── 03-freespace.Rmd
+## ├── CV_Annemarieke_Kreeft.pdf
+## ├── covid_data.Rmd
+## ├── md5_examples
+## │   ├── MD5_exampledata_1.txt
+## │   ├── MD5_exampledata_backupcomputercrash.txt
+## │   ├── MD5_exampledata_maybethisone.txt
+## │   └── MD5_exampledata_savethisone.txt
+## ├── portfolio_annemarieke.Rmd
+## ├── toxrefdb_nel_lel_noael_loael_summary_AUG2014_FOR_PUBLIC_RELEASE.csv
+## └── toxrefdb_nel_lel_noael_loael_summary_AUG2014_FOR_PUBLIC_RELEASE_server.csv</code></pre>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="guerrilla-analytics.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
