@@ -13,8 +13,11 @@ internship
 free-space-visualisation-of-scrna-sequencing-using-python
 scrna-sequencing-using-python
 planning
-exercises
-opdracht-3.2
-exercise-3.3
-exercise-3.4
+freespace-uitwerking
 guerrilla-analytics
+reproducible-research
+c.elegans-plate-experiment
+open-peer-review
+part-1
+part-2
+making-an-r-package
