@@ -1,3 +1,6 @@
+fig:plotting1-1
+fig:plotting1-2
+fig:plotting3
 introduction
 cv
 rd-year

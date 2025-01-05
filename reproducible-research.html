@@ -23,7 +23,7 @@
 <meta name="author" content="AK" />
 
 
-<meta name="date" content="2025-01-04" />
+<meta name="date" content="2025-01-05" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -201,29 +201,33 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>## [1] &quot;expParameters&quot; &quot;expLookup&quot;     &quot;changes&quot;       &quot;example input&quot;</code></pre>
 <div class="sourceCode" id="cb208"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb208-1"><a href="reproducible-research.html#cb208-1" tabindex="-1"></a>opdracht4<span class="ot">&lt;-</span> <span class="fu">read_xlsx</span>(<span class="st">&quot;/Users/annemariekekreeft/school/dsfb2_workflows_portfolio/data/CE.LIQ.FLOW.062_Tidydata.xlsx&quot;</span>, <span class="at">sheet =</span> <span class="st">&quot;expParameters&quot;</span>)</span></code></pre></div>
 <div class="sourceCode" id="cb209"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb209-1"><a href="reproducible-research.html#cb209-1" tabindex="-1"></a><span class="co"># C. </span></span>
-<span id="cb209-2"><a href="reproducible-research.html#cb209-2" tabindex="-1"></a>opdracht4<span class="sc">$</span>compConcentration <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">as.character</span>(opdracht4<span class="sc">$</span>compConcentration))</span></code></pre></div>
-<pre><code>## Warning: NAs introduced by coercion</code></pre>
-<div class="sourceCode" id="cb211"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb211-1"><a href="reproducible-research.html#cb211-1" tabindex="-1"></a><span class="co"># D. </span></span>
-<span id="cb211-2"><a href="reproducible-research.html#cb211-2" tabindex="-1"></a>opdracht4 <span class="sc">%&gt;%</span> </span>
-<span id="cb211-3"><a href="reproducible-research.html#cb211-3" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> compConcentration, <span class="at">y =</span> RawData, <span class="at">colour =</span> compName, <span class="at">shape =</span> expType)) <span class="sc">+</span> </span>
-<span id="cb211-4"><a href="reproducible-research.html#cb211-4" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="at">size =</span> <span class="dv">3</span>, <span class="at">width =</span> <span class="fl">0.1</span>, <span class="at">height =</span> <span class="dv">0</span>) <span class="sc">+</span>  <span class="co"># Add jitter with control over the x and y spread</span></span>
-<span id="cb211-5"><a href="reproducible-research.html#cb211-5" tabindex="-1"></a>  <span class="fu">theme_classic</span>() <span class="sc">+</span></span>
-<span id="cb211-6"><a href="reproducible-research.html#cb211-6" tabindex="-1"></a>  <span class="fu">rotate_axis_labels</span>(<span class="at">axis =</span> <span class="st">&quot;x&quot;</span>, <span class="at">angle =</span> <span class="dv">60</span>) <span class="sc">+</span></span>
-<span id="cb211-7"><a href="reproducible-research.html#cb211-7" tabindex="-1"></a>  <span class="fu">scale_x_log10</span>()</span></code></pre></div>
-<pre><code>## Warning in scale_x_log10(): log-10 transformation introduced infinite values.</code></pre>
-<pre><code>## Warning: Removed 6 rows containing missing values or values
-## outside the scale range (`geom_point()`).</code></pre>
-<p><img src="_main_files/figure-html/plotting1-1.png" width="672" /></p>
-<div class="sourceCode" id="cb214"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb214-1"><a href="reproducible-research.html#cb214-1" tabindex="-1"></a>opdracht4 <span class="sc">%&gt;%</span> </span>
-<span id="cb214-2"><a href="reproducible-research.html#cb214-2" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> compConcentration, <span class="at">y =</span> RawData, <span class="at">colour =</span> compName, <span class="at">shape =</span> expType)) <span class="sc">+</span> </span>
-<span id="cb214-3"><a href="reproducible-research.html#cb214-3" tabindex="-1"></a>  <span class="fu">geom_jitter</span>() <span class="sc">+</span>  <span class="co"># Add jitter with control over the x and y spread</span></span>
-<span id="cb214-4"><a href="reproducible-research.html#cb214-4" tabindex="-1"></a>  <span class="fu">theme_classic</span>() <span class="sc">+</span></span>
-<span id="cb214-5"><a href="reproducible-research.html#cb214-5" tabindex="-1"></a>  <span class="fu">rotate_axis_labels</span>(<span class="at">axis =</span> <span class="st">&quot;x&quot;</span>, <span class="at">angle =</span> <span class="dv">60</span>) <span class="sc">+</span></span>
-<span id="cb214-6"><a href="reproducible-research.html#cb214-6" tabindex="-1"></a>  <span class="fu">scale_x_log10</span>()</span></code></pre></div>
-<pre><code>## Warning in scale_x_log10(): log-10 transformation introduced infinite values.
-## Removed 6 rows containing missing values or values
-## outside the scale range (`geom_point()`).</code></pre>
-<p><img src="_main_files/figure-html/plotting1-2.png" width="672" /></p>
+<span id="cb209-2"><a href="reproducible-research.html#cb209-2" tabindex="-1"></a>opdracht4<span class="sc">$</span>compConcentration <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">as.character</span>(opdracht4<span class="sc">$</span>compConcentration))</span>
+<span id="cb209-3"><a href="reproducible-research.html#cb209-3" tabindex="-1"></a></span>
+<span id="cb209-4"><a href="reproducible-research.html#cb209-4" tabindex="-1"></a><span class="co"># D. </span></span>
+<span id="cb209-5"><a href="reproducible-research.html#cb209-5" tabindex="-1"></a>opdracht4 <span class="sc">%&gt;%</span> </span>
+<span id="cb209-6"><a href="reproducible-research.html#cb209-6" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> compConcentration, <span class="at">y =</span> RawData, <span class="at">colour =</span> compName, <span class="at">shape =</span> expType)) <span class="sc">+</span> </span>
+<span id="cb209-7"><a href="reproducible-research.html#cb209-7" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="at">size =</span> <span class="dv">3</span>, <span class="at">width =</span> <span class="fl">0.1</span>, <span class="at">height =</span> <span class="dv">0</span>) <span class="sc">+</span>  <span class="co"># Add jitter with control over the x and y spread</span></span>
+<span id="cb209-8"><a href="reproducible-research.html#cb209-8" tabindex="-1"></a>  <span class="fu">theme_classic</span>() <span class="sc">+</span></span>
+<span id="cb209-9"><a href="reproducible-research.html#cb209-9" tabindex="-1"></a>  <span class="fu">rotate_axis_labels</span>(<span class="at">axis =</span> <span class="st">&quot;x&quot;</span>, <span class="at">angle =</span> <span class="dv">60</span>) <span class="sc">+</span></span>
+<span id="cb209-10"><a href="reproducible-research.html#cb209-10" tabindex="-1"></a>  <span class="fu">scale_x_log10</span>()</span></code></pre></div>
+<div class="figure"><span style="display:block;" id="fig:plotting1-1"></span>
+<img src="_main_files/figure-html/plotting1-1.png" alt="Figure 1: CE.LIQ.FLOW.062_Tidydata.xlsx data, with the different compounds and the varying concentrations" width="672" />
+<p class="caption">
+Figure 5.1: Figure 1: CE.LIQ.FLOW.062_Tidydata.xlsx data, with the different compounds and the varying concentrations
+</p>
+</div>
+<div class="sourceCode" id="cb210"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb210-1"><a href="reproducible-research.html#cb210-1" tabindex="-1"></a>opdracht4 <span class="sc">%&gt;%</span> </span>
+<span id="cb210-2"><a href="reproducible-research.html#cb210-2" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> compConcentration, <span class="at">y =</span> RawData, <span class="at">colour =</span> compName, <span class="at">shape =</span> expType)) <span class="sc">+</span> </span>
+<span id="cb210-3"><a href="reproducible-research.html#cb210-3" tabindex="-1"></a>  <span class="fu">geom_jitter</span>() <span class="sc">+</span>  <span class="co"># Add jitter with control over the x and y spread</span></span>
+<span id="cb210-4"><a href="reproducible-research.html#cb210-4" tabindex="-1"></a>  <span class="fu">theme_classic</span>() <span class="sc">+</span></span>
+<span id="cb210-5"><a href="reproducible-research.html#cb210-5" tabindex="-1"></a>  <span class="fu">rotate_axis_labels</span>(<span class="at">axis =</span> <span class="st">&quot;x&quot;</span>, <span class="at">angle =</span> <span class="dv">60</span>) <span class="sc">+</span></span>
+<span id="cb210-6"><a href="reproducible-research.html#cb210-6" tabindex="-1"></a>  <span class="fu">scale_x_log10</span>()</span></code></pre></div>
+<div class="figure"><span style="display:block;" id="fig:plotting1-2"></span>
+<img src="_main_files/figure-html/plotting1-2.png" alt="Figure 1: CE.LIQ.FLOW.062_Tidydata.xlsx data, with the different compounds and the varying concentrations" width="672" />
+<p class="caption">
+Figure 5.2: Figure 1: CE.LIQ.FLOW.062_Tidydata.xlsx data, with the different compounds and the varying concentrations
+</p>
+</div>
 <p>Figuur x: RawData counts bij verschillende .
 (G) The positive control for this experiment is ethanol, depicted as the green triangles.<br />
 (H) The negative control for this experiment is s-medium, depicted as the pink circles.</p>
@@ -237,29 +241,39 @@ Dose-Response Curves: Maak een scatterplot of lijngrafiek van het aantal nakomel
 Gebruik een generalized linear model (GLM) met een log-transformatie van de concentratie als “predictor” en het aantal nakomelingen als afhankelijke variabele. Om de concentratie-responsrelatie, IC50, te analyseren, gebruik je een niet-lineaire regressie, bijvoorbeeld logistische regressie.</p>
 <p><em>4. Bepaal het Effect van Verbindingen op IC50</em><br />
 Haal de IC50-schattingen uit de dose-response curves voor elke verbinding. Je kunt de IC50-waarden berekenen als de concentratie waarbij het aantal nakomelingen 50% van het maximale effect (bovenste waarde) bereikt. Vervolgens vergelijk je de IC50-waarden tussen de verbindingen om te bepalen of er significante verschillen zijn. Hierbij kan je bijvoorbeeld een ANOVA test gebruiken om de IC50-waarden voor elke verbinding te vergelijken.</p>
-<div class="sourceCode" id="cb216"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb216-1"><a href="reproducible-research.html#cb216-1" tabindex="-1"></a>df_normalized <span class="ot">&lt;-</span> opdracht4 <span class="sc">%&gt;%</span></span>
-<span id="cb216-2"><a href="reproducible-research.html#cb216-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">controlMean =</span> <span class="fu">mean</span>(RawData[expType <span class="sc">==</span> <span class="st">&quot;controlNegative&quot;</span>], <span class="at">na.rm =</span> <span class="cn">TRUE</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb216-3"><a href="reproducible-research.html#cb216-3" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">RawData_normalized =</span> RawData <span class="sc">/</span> controlMean)  <span class="sc">%&gt;%</span></span>
-<span id="cb216-4"><a href="reproducible-research.html#cb216-4" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>controlMean)</span>
-<span id="cb216-5"><a href="reproducible-research.html#cb216-5" tabindex="-1"></a></span>
-<span id="cb216-6"><a href="reproducible-research.html#cb216-6" tabindex="-1"></a>df_normalized <span class="sc">%&gt;%</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> compConcentration, <span class="at">y =</span> RawData_normalized, <span class="at">colour =</span> compName, <span class="at">shape =</span> expType)) <span class="sc">+</span> </span>
-<span id="cb216-7"><a href="reproducible-research.html#cb216-7" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="at">size =</span> <span class="dv">3</span>, <span class="at">width =</span> <span class="fl">0.1</span>, <span class="at">height =</span> <span class="dv">0</span>) <span class="sc">+</span>  <span class="co"># Add jitter with control over the x and y spread</span></span>
-<span id="cb216-8"><a href="reproducible-research.html#cb216-8" tabindex="-1"></a>  <span class="fu">theme_classic</span>() <span class="sc">+</span></span>
-<span id="cb216-9"><a href="reproducible-research.html#cb216-9" tabindex="-1"></a>  <span class="fu">rotate_axis_labels</span>(<span class="at">axis =</span> <span class="st">&quot;x&quot;</span>, <span class="at">angle =</span> <span class="dv">60</span>) <span class="sc">+</span></span>
-<span id="cb216-10"><a href="reproducible-research.html#cb216-10" tabindex="-1"></a>  <span class="fu">scale_x_log10</span>()</span></code></pre></div>
-<pre><code>## Warning in scale_x_log10(): log-10 transformation introduced infinite values.</code></pre>
-<pre><code>## Warning: Removed 6 rows containing missing values or values
-## outside the scale range (`geom_point()`).</code></pre>
-<p><img src="_main_files/figure-html/plotting2-1.png" width="672" /></p>
-<div class="sourceCode" id="cb219"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb219-1"><a href="reproducible-research.html#cb219-1" tabindex="-1"></a>df_normalized <span class="sc">%&gt;%</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> compConcentration, <span class="at">y =</span> RawData_normalized, <span class="at">colour =</span> compName, <span class="at">shape =</span> expType)) <span class="sc">+</span> </span>
-<span id="cb219-2"><a href="reproducible-research.html#cb219-2" tabindex="-1"></a>  <span class="fu">geom_jitter</span>() <span class="sc">+</span>  <span class="co"># Add jitter with control over the x and y spread</span></span>
-<span id="cb219-3"><a href="reproducible-research.html#cb219-3" tabindex="-1"></a>  <span class="fu">theme_classic</span>() <span class="sc">+</span></span>
-<span id="cb219-4"><a href="reproducible-research.html#cb219-4" tabindex="-1"></a>  <span class="fu">rotate_axis_labels</span>(<span class="at">axis =</span> <span class="st">&quot;x&quot;</span>, <span class="at">angle =</span> <span class="dv">60</span>) <span class="sc">+</span></span>
-<span id="cb219-5"><a href="reproducible-research.html#cb219-5" tabindex="-1"></a>   <span class="fu">scale_x_log10</span>()</span></code></pre></div>
-<pre><code>## Warning in scale_x_log10(): log-10 transformation introduced infinite values.</code></pre>
-<pre><code>## Warning: Removed 6 rows containing missing values or values
-## outside the scale range (`geom_point()`).</code></pre>
-<p><img src="_main_files/figure-html/plotting3-1.png" width="672" /></p>
+<div class="sourceCode" id="cb211"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb211-1"><a href="reproducible-research.html#cb211-1" tabindex="-1"></a>df_normalized <span class="ot">&lt;-</span> opdracht4 <span class="sc">%&gt;%</span></span>
+<span id="cb211-2"><a href="reproducible-research.html#cb211-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">controlMean =</span> <span class="fu">mean</span>(RawData[expType <span class="sc">==</span> <span class="st">&quot;controlNegative&quot;</span>], <span class="at">na.rm =</span> <span class="cn">TRUE</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb211-3"><a href="reproducible-research.html#cb211-3" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">RawData_normalized =</span> RawData <span class="sc">/</span> controlMean)  <span class="sc">%&gt;%</span></span>
+<span id="cb211-4"><a href="reproducible-research.html#cb211-4" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>controlMean)</span></code></pre></div>
+<div class="sourceCode" id="cb212"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb212-1"><a href="reproducible-research.html#cb212-1" tabindex="-1"></a><span class="fu">ggplot</span>(df_normalized, <span class="fu">aes</span>(</span>
+<span id="cb212-2"><a href="reproducible-research.html#cb212-2" tabindex="-1"></a>  <span class="at">x =</span> compConcentration,</span>
+<span id="cb212-3"><a href="reproducible-research.html#cb212-3" tabindex="-1"></a>  <span class="at">y =</span> RawData_normalized,</span>
+<span id="cb212-4"><a href="reproducible-research.html#cb212-4" tabindex="-1"></a>  <span class="at">colour =</span> compName,</span>
+<span id="cb212-5"><a href="reproducible-research.html#cb212-5" tabindex="-1"></a>  <span class="at">shape =</span> expType</span>
+<span id="cb212-6"><a href="reproducible-research.html#cb212-6" tabindex="-1"></a>)) <span class="sc">+</span></span>
+<span id="cb212-7"><a href="reproducible-research.html#cb212-7" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="at">size =</span> <span class="dv">3</span>, <span class="at">width =</span> <span class="fl">0.1</span>, <span class="at">height =</span> <span class="dv">0</span>) <span class="sc">+</span>  <span class="co"># Add jitter for better visualization</span></span>
+<span id="cb212-8"><a href="reproducible-research.html#cb212-8" tabindex="-1"></a>  <span class="fu">theme_classic</span>() <span class="sc">+</span>  <span class="co"># Use a clean theme</span></span>
+<span id="cb212-9"><a href="reproducible-research.html#cb212-9" tabindex="-1"></a>  <span class="fu">scale_x_log10</span>() <span class="sc">+</span>  <span class="co"># Log-transform x-axis</span></span>
+<span id="cb212-10"><a href="reproducible-research.html#cb212-10" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb212-11"><a href="reproducible-research.html#cb212-11" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">&quot;Normalized Raw Data by Compound Concentration&quot;</span>,</span>
+<span id="cb212-12"><a href="reproducible-research.html#cb212-12" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">&quot;Compound Concentration&quot;</span>,</span>
+<span id="cb212-13"><a href="reproducible-research.html#cb212-13" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">&quot;Normalized Raw Data&quot;</span>,</span>
+<span id="cb212-14"><a href="reproducible-research.html#cb212-14" tabindex="-1"></a>    <span class="at">colour =</span> <span class="st">&quot;Compound Name&quot;</span>,</span>
+<span id="cb212-15"><a href="reproducible-research.html#cb212-15" tabindex="-1"></a>    <span class="at">shape =</span> <span class="st">&quot;Experimental Type&quot;</span></span>
+<span id="cb212-16"><a href="reproducible-research.html#cb212-16" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb212-17"><a href="reproducible-research.html#cb212-17" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb212-18"><a href="reproducible-research.html#cb212-18" tabindex="-1"></a>    <span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>),  <span class="co"># Rotate x-axis labels</span></span>
+<span id="cb212-19"><a href="reproducible-research.html#cb212-19" tabindex="-1"></a>    <span class="at">legend.position =</span> <span class="st">&quot;right&quot;</span>  <span class="co"># Place the legend on the right</span></span>
+<span id="cb212-20"><a href="reproducible-research.html#cb212-20" tabindex="-1"></a>  )</span></code></pre></div>
+<div class="figure"><span style="display:block;" id="fig:plotting3"></span>
+<img src="_main_files/figure-html/plotting3-1.png" alt="Figure 2: figuur 1, data is genormaliseerd" width="672" />
+<p class="caption">
+Figure 5.3: Figure 2: figuur 1, data is genormaliseerd
+</p>
+</div>
+<ol start="11" style="list-style-type: upper-alpha">
+<li>Normalisatie naar een gemeenschappelijke basislijn (bijvoorbeeld het gemiddelde van de controlNegative) kan helpen om te voldoen aan de aannames van bepaalde statistische testen door de variatie te verminderen en de vergelijkbaarheid van de gegevens te waarborgen.</li>
+</ol>
 
 </div>
 </div>
