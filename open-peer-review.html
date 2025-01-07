@@ -23,7 +23,7 @@
 <meta name="author" content="AK" />
 
 
-<meta name="date" content="2025-01-05" />
+<meta name="date" content="2025-01-07" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -712,33 +712,68 @@ doi: <a href="https://doi.org/10.1101/2024.04.22.590490" class="uri">https://doi
 <span id="cb213-3"><a href="open-peer-review.html#cb213-3" tabindex="-1"></a><span class="fu">library</span>(mgcv)</span>
 <span id="cb213-4"><a href="open-peer-review.html#cb213-4" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
 <span id="cb213-5"><a href="open-peer-review.html#cb213-5" tabindex="-1"></a><span class="fu">library</span>(dosresmeta)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<div class="sourceCode" id="cb214"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb214-1"><a href="open-peer-review.html#cb214-1" tabindex="-1"></a><span class="co">#dat = read.csv(file=&quot;data_and_materials/SPRT_LogLin_216.csv&quot;,head=T) </span></span>
+<span id="cb214-2"><a href="open-peer-review.html#cb214-2" tabindex="-1"></a><span class="co">#Changed to:</span></span>
+<span id="cb214-3"><a href="open-peer-review.html#cb214-3" tabindex="-1"></a>dat <span class="ot">=</span> <span class="fu">read.csv</span>(<span class="at">file=</span><span class="st">&quot;/Users/annemariekekreeft/school/share_the_code_paper2/data/SPRT_LogLin_216.csv&quot;</span>, <span class="at">head =</span> T)</span>
+<span id="cb214-4"><a href="open-peer-review.html#cb214-4" tabindex="-1"></a>               </span>
+<span id="cb214-5"><a href="open-peer-review.html#cb214-5" tabindex="-1"></a>lin_gam<span class="ot">=</span><span class="fu">gam</span>(SUM_3RT_trimmed <span class="sc">~</span><span class="fu">s</span>(c_cloze) <span class="sc">+</span> <span class="fu">s</span>(SUB,<span class="at">bs=</span><span class="st">&quot;re&quot;</span>)<span class="sc">+</span></span>
+<span id="cb214-6"><a href="open-peer-review.html#cb214-6" tabindex="-1"></a>              <span class="fu">s</span>(ITEM,<span class="at">bs=</span> <span class="st">&quot;re&quot;</span>),</span>
+<span id="cb214-7"><a href="open-peer-review.html#cb214-7" tabindex="-1"></a>             <span class="at">data=</span>dat, <span class="at">method =</span> <span class="st">&quot;REML&quot;</span>)</span>
+<span id="cb214-8"><a href="open-peer-review.html#cb214-8" tabindex="-1"></a><span class="co">#summary(lin_gam)</span></span>
+<span id="cb214-9"><a href="open-peer-review.html#cb214-9" tabindex="-1"></a><span class="fu">plot.gam</span>(lin_gam, <span class="at">select =</span> <span class="dv">1</span>)</span></code></pre></div>
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-3"></span>
+<img src="_main_files/figure-html/unnamed-chunk-3-1.png" alt="Figuur 1." width="672" />
+<p class="caption">
+Figure 6.1: Figuur 1.
+</p>
+</div>
+<div class="sourceCode" id="cb215"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb215-1"><a href="open-peer-review.html#cb215-1" tabindex="-1"></a><span class="co">#y_pred &lt;- predict(lin_gam, data.frame(x = x_new)) </span></span></code></pre></div>
 <p>Log-transformed cloze probability:</p>
-<p><img src="_main_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<div class="sourceCode" id="cb216"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb216-1"><a href="open-peer-review.html#cb216-1" tabindex="-1"></a>log_gam<span class="ot">=</span><span class="fu">gam</span>(SUM_3RT_trimmed <span class="sc">~</span> <span class="fu">s</span>(c_log_cloze) <span class="sc">+</span> <span class="fu">s</span>(SUB,<span class="at">bs=</span><span class="st">&quot;re&quot;</span>)<span class="sc">+</span></span>
+<span id="cb216-2"><a href="open-peer-review.html#cb216-2" tabindex="-1"></a>              <span class="fu">s</span>(ITEM,<span class="at">bs=</span> <span class="st">&quot;re&quot;</span>),</span>
+<span id="cb216-3"><a href="open-peer-review.html#cb216-3" tabindex="-1"></a>            <span class="at">data=</span>dat,</span>
+<span id="cb216-4"><a href="open-peer-review.html#cb216-4" tabindex="-1"></a>            <span class="at">method =</span> <span class="st">&quot;REML&quot;</span>)</span>
+<span id="cb216-5"><a href="open-peer-review.html#cb216-5" tabindex="-1"></a><span class="fu">plot.gam</span>(log_gam, <span class="at">select =</span> <span class="dv">1</span>)</span></code></pre></div>
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-4"></span>
+<img src="_main_files/figure-html/unnamed-chunk-4-1.png" alt="Figuur 2." width="672" />
+<p class="caption">
+Figure 6.2: Figuur 2.
+</p>
+</div>
 <p>The patterns from Fig. 1 hold, the plots seem similar enough.</p>
 <p>Trying to reproduce GAMMs analysis. Raw cloze probability:</p>
-<div class="sourceCode" id="cb214"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb214-1"><a href="open-peer-review.html#cb214-1" tabindex="-1"></a><span class="co">#dat2 = read.csv(file=&quot;data_and_materials/LogLin_Naming.csv&quot;,head=T)</span></span>
-<span id="cb214-2"><a href="open-peer-review.html#cb214-2" tabindex="-1"></a><span class="co">#Changed to:</span></span>
-<span id="cb214-3"><a href="open-peer-review.html#cb214-3" tabindex="-1"></a>dat2 <span class="ot">=</span> <span class="fu">read.csv</span>(<span class="st">&quot;/Users/annemariekekreeft/school/share_the_code_paper2/data/LogLin_Naming.csv&quot;</span>, <span class="at">head =</span> T)</span>
-<span id="cb214-4"><a href="open-peer-review.html#cb214-4" tabindex="-1"></a></span>
-<span id="cb214-5"><a href="open-peer-review.html#cb214-5" tabindex="-1"></a>dat2<span class="sc">$</span>subject <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(dat2<span class="sc">$</span>subject)</span>
-<span id="cb214-6"><a href="open-peer-review.html#cb214-6" tabindex="-1"></a><span class="co">#Onderste deel gaf volgende error:</span></span>
-<span id="cb214-7"><a href="open-peer-review.html#cb214-7" tabindex="-1"></a><span class="co">#Error in names(dat) &lt;- object$term : </span></span>
-<span id="cb214-8"><a href="open-peer-review.html#cb214-8" tabindex="-1"></a>  <span class="co">#&#39;names&#39; attribute [1] must be the same length as the vector [0]</span></span>
-<span id="cb214-9"><a href="open-peer-review.html#cb214-9" tabindex="-1"></a><span class="co">#Dus dat2$subject &lt;- as.factor(dat2$subject) toegevoegd. </span></span>
-<span id="cb214-10"><a href="open-peer-review.html#cb214-10" tabindex="-1"></a></span>
-<span id="cb214-11"><a href="open-peer-review.html#cb214-11" tabindex="-1"></a>lin_gam<span class="ot">=</span><span class="fu">gam</span>(TRIM_RT <span class="sc">~</span><span class="fu">s</span>(c_cloze) <span class="sc">+</span> <span class="fu">s</span>(subject,<span class="at">bs=</span><span class="st">&quot;re&quot;</span>)<span class="sc">+</span></span>
-<span id="cb214-12"><a href="open-peer-review.html#cb214-12" tabindex="-1"></a>              <span class="fu">s</span>(item,<span class="at">bs=</span> <span class="st">&quot;re&quot;</span>),</span>
-<span id="cb214-13"><a href="open-peer-review.html#cb214-13" tabindex="-1"></a>            <span class="at">data=</span>dat2, <span class="at">method =</span> <span class="st">&quot;REML&quot;</span>)</span>
-<span id="cb214-14"><a href="open-peer-review.html#cb214-14" tabindex="-1"></a><span class="fu">plot.gam</span>(lin_gam, <span class="at">select =</span> <span class="dv">1</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<div class="sourceCode" id="cb217"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb217-1"><a href="open-peer-review.html#cb217-1" tabindex="-1"></a><span class="co">#dat2 = read.csv(file=&quot;data_and_materials/LogLin_Naming.csv&quot;,head=T)</span></span>
+<span id="cb217-2"><a href="open-peer-review.html#cb217-2" tabindex="-1"></a><span class="co">#Changed to:</span></span>
+<span id="cb217-3"><a href="open-peer-review.html#cb217-3" tabindex="-1"></a>dat2 <span class="ot">=</span> <span class="fu">read.csv</span>(<span class="st">&quot;/Users/annemariekekreeft/school/share_the_code_paper2/data/LogLin_Naming.csv&quot;</span>, <span class="at">head =</span> T)</span>
+<span id="cb217-4"><a href="open-peer-review.html#cb217-4" tabindex="-1"></a></span>
+<span id="cb217-5"><a href="open-peer-review.html#cb217-5" tabindex="-1"></a>dat2<span class="sc">$</span>subject <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(dat2<span class="sc">$</span>subject)</span>
+<span id="cb217-6"><a href="open-peer-review.html#cb217-6" tabindex="-1"></a><span class="co">#Onderste deel gaf volgende error:</span></span>
+<span id="cb217-7"><a href="open-peer-review.html#cb217-7" tabindex="-1"></a><span class="co">#Error in names(dat) &lt;- object$term : </span></span>
+<span id="cb217-8"><a href="open-peer-review.html#cb217-8" tabindex="-1"></a>  <span class="co">#&#39;names&#39; attribute [1] must be the same length as the vector [0]</span></span>
+<span id="cb217-9"><a href="open-peer-review.html#cb217-9" tabindex="-1"></a><span class="co">#Dus dat2$subject &lt;- as.factor(dat2$subject) toegevoegd. </span></span>
+<span id="cb217-10"><a href="open-peer-review.html#cb217-10" tabindex="-1"></a></span>
+<span id="cb217-11"><a href="open-peer-review.html#cb217-11" tabindex="-1"></a>lin_gam<span class="ot">=</span><span class="fu">gam</span>(TRIM_RT <span class="sc">~</span><span class="fu">s</span>(c_cloze) <span class="sc">+</span> <span class="fu">s</span>(subject,<span class="at">bs=</span><span class="st">&quot;re&quot;</span>)<span class="sc">+</span></span>
+<span id="cb217-12"><a href="open-peer-review.html#cb217-12" tabindex="-1"></a>              <span class="fu">s</span>(item,<span class="at">bs=</span> <span class="st">&quot;re&quot;</span>),</span>
+<span id="cb217-13"><a href="open-peer-review.html#cb217-13" tabindex="-1"></a>            <span class="at">data=</span>dat2, <span class="at">method =</span> <span class="st">&quot;REML&quot;</span>)</span>
+<span id="cb217-14"><a href="open-peer-review.html#cb217-14" tabindex="-1"></a><span class="fu">plot.gam</span>(lin_gam, <span class="at">select =</span> <span class="dv">1</span>)</span></code></pre></div>
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-5"></span>
+<img src="_main_files/figure-html/unnamed-chunk-5-1.png" alt="Figuur 3." width="672" />
+<p class="caption">
+Figure 6.3: Figuur 3.
+</p>
+</div>
 <p>Log-transformed cloze probability:</p>
-<div class="sourceCode" id="cb215"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb215-1"><a href="open-peer-review.html#cb215-1" tabindex="-1"></a>log_gam<span class="ot">=</span><span class="fu">gam</span>(TRIM_RT <span class="sc">~</span> <span class="fu">s</span>(c_log_cloze) <span class="sc">+</span> <span class="fu">s</span>(subject,<span class="at">bs=</span><span class="st">&quot;re&quot;</span>)<span class="sc">+</span></span>
-<span id="cb215-2"><a href="open-peer-review.html#cb215-2" tabindex="-1"></a>              <span class="fu">s</span>(item,<span class="at">bs=</span> <span class="st">&quot;re&quot;</span>),</span>
-<span id="cb215-3"><a href="open-peer-review.html#cb215-3" tabindex="-1"></a>            <span class="at">data=</span>dat2,</span>
-<span id="cb215-4"><a href="open-peer-review.html#cb215-4" tabindex="-1"></a>            <span class="at">method =</span> <span class="st">&quot;REML&quot;</span>)</span>
-<span id="cb215-5"><a href="open-peer-review.html#cb215-5" tabindex="-1"></a><span class="fu">plot.gam</span>(log_gam, <span class="at">select =</span> <span class="dv">1</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<div class="sourceCode" id="cb218"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb218-1"><a href="open-peer-review.html#cb218-1" tabindex="-1"></a>log_gam<span class="ot">=</span><span class="fu">gam</span>(TRIM_RT <span class="sc">~</span> <span class="fu">s</span>(c_log_cloze) <span class="sc">+</span> <span class="fu">s</span>(subject,<span class="at">bs=</span><span class="st">&quot;re&quot;</span>)<span class="sc">+</span></span>
+<span id="cb218-2"><a href="open-peer-review.html#cb218-2" tabindex="-1"></a>              <span class="fu">s</span>(item,<span class="at">bs=</span> <span class="st">&quot;re&quot;</span>),</span>
+<span id="cb218-3"><a href="open-peer-review.html#cb218-3" tabindex="-1"></a>            <span class="at">data=</span>dat2,</span>
+<span id="cb218-4"><a href="open-peer-review.html#cb218-4" tabindex="-1"></a>            <span class="at">method =</span> <span class="st">&quot;REML&quot;</span>)</span>
+<span id="cb218-5"><a href="open-peer-review.html#cb218-5" tabindex="-1"></a><span class="fu">plot.gam</span>(log_gam, <span class="at">select =</span> <span class="dv">1</span>)</span></code></pre></div>
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-6"></span>
+<img src="_main_files/figure-html/unnamed-chunk-6-1.png" alt="Figuur 4." width="672" />
+<p class="caption">
+Figure 6.4: Figuur 4.
+</p>
+</div>
 <p>The patterns from Fig. 1 hold, the plots seem similar enough.</p>
 <ol start="15" style="list-style-type: upper-alpha">
 <li>5, very easy.</li>
